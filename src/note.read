@@ -1,0 +1,98 @@
+import './App.css'
+import { useState } from "react";
+
+// const gifts = ['CPU', 'LAPTOP', 'PC']
+
+// const courses = [
+//   {
+//     id:1,
+//     name: 'HTML',
+//   },
+//   {
+//     id:2,
+//     name: 'CSS',
+//   },
+//   {
+//     id:3,
+//     name: 'REACT',
+//   },
+// ]
+function App() {
+  // const [counter , setCounter] = useState(1)
+  // const handleIncrease = () => {
+  //   setCounter(counter + 1)
+  // }
+
+  // const handleCrip = () => {
+  //   setCounter(counter - 1)
+  // }
+  // const [gift, setGift] = useState();
+
+  // const randomGift = () => {
+  //   const  index = Math.floor(Math.random() * gifts.length);
+  //   setGift(gifts[index]);
+  // }
+  // const [name, setName] = useState('')
+  // const [email, setEmail] = useState('')
+
+  const [checked, setChecked] = useState([])
+  console.log(checked);
+
+  
+  
+  const handleCheck = () => {
+    
+  }
+
+  return (
+    <div className="App">
+      {courses.map(course => (
+        <div key={course.id}>
+          <input type='checkbox'
+            checked={checked === course.id}
+            onChange={handleCheck}
+          />
+          {course.name}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+const [job, setJob] = useState('')
+  const [jobs, setJobs] = useState(() => {
+    const storageJobs = JSON.parse(localStorage.getItem('job')) // lay du lieu tu storage ra
+    return storageJobs ?? []; // toan tu ?? khi ma storage null thi tra ve mang
+  })
+
+  const handleSubmit = () => {
+    setJobs(prev => {
+      const newJobs = [...prev, job];
+      const jsonJobs = JSON.stringify(newJobs); // chuyen du lieu de them vao storage
+
+      localStorage.setItem('job', jsonJobs) // them du lieu vao storage
+
+      return newJobs;
+    })
+    setJob('')
+  }
+
+   
+  return (
+    <div className="App">
+      <input value={job} onChange={e => setJob(e.target.value)} />
+      <button onClick={handleSubmit}>Add</button>
+      <h1>name</h1>
+
+      <ul>
+        {jobs.map((job, index) => (
+          <li key={index}>{job}</li>
+        ))}
+      </ul>
+    </div>
+  );

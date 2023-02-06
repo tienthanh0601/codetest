@@ -1,0 +1,21 @@
+.add-form {
+     height: 30px;
+     margin-bottom: 20px;
+     display: flex;
+     justify-content: space-between;
+   
+     
+     
+   }
+
+   .add-form .add-form-title-field {
+     max-height: 24px;
+     height: 24px;
+   }
+
+   .add-form-submit-button{
+     max-height: 30px;
+     height: 30px;
+     margin-block-end: 0px;
+     margin-block-start: 0px;
+   }
